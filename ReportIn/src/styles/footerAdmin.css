@@ -1,0 +1,79 @@
+/* Footer Utama */
+.admin-footer-enhanced {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-top: 1px solid rgba(64, 106, 175, 0.15);
+    margin-top: auto;
+    padding: 2rem 1.5rem 1.5rem;
+    box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.05);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Container Konten */
+.footer-enhanced-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center; /* Paksa ke tengah di PC */
+    align-items: center;
+    text-align: center;
+}
+
+.footer-brand-section {
+    flex: none;
+    width: 100%;
+}
+
+.footer-brand-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #1e3a5f 0%, #406AAF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: -0.02em;
+}
+
+.footer-copyright {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin: 0;
+    opacity: 0.8;
+}
+
+/* Dekorasi Bawah */
+.footer-bottom-decoration {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(64, 106, 175, 0.08);
+}
+
+.footer-heart {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+
+/* Media Query untuk PC (Layout Berdampingan dengan Sidebar) */
+@media screen and (min-width: 992px) { 
+    .admin-footer-enhanced {
+        margin-left: 260px; 
+        width: calc(100% - 260px); 
+    }
+}
+
+/* Media Query untuk Mobile */
+@media (max-width: 768px) {
+    .admin-footer-enhanced {
+        padding: 1.5rem 1rem 1rem;
+    }
+    
+    .footer-brand-title {
+        font-size: 1.3rem;
+    }
+}

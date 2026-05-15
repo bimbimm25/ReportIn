@@ -1,0 +1,247 @@
+/* Navbar & Sidebar Styling */
+.navbar-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 260px;
+  height: 100vh;
+  background: #ffffff;
+  padding: 28px 20px;
+  box-shadow: 2px 0 18px rgba(15, 23, 42, 0.08);
+  z-index: 999;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 24px;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sidebar-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #406AAF;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.sidebar-title {
+  color: #0f172a;
+  font-size: 1.25rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+.sidebar-subtitle {
+  margin: 2px 0 0;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.close-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #0f172a;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: auto;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  color: #334155;
+  text-decoration: none;
+  border-left: 4px solid transparent;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  background: transparent;
+  font-size: 0.98rem;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.nav-item-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  min-width: 24px;
+  font-size: 0.95rem;
+}
+
+.nav-item:hover,
+.nav-item:focus-visible {
+  background: #f8fafc;
+  border-left-color: #406AAF;
+  color: #0f172a;
+  transform: translateX(2px);
+}
+
+.logout-btn {
+  border: none;
+  margin-top: auto;
+  width: 100%;
+  text-align: left;
+  padding: 14px 18px;
+  color: #ef4444;
+  background: #fef2f2;
+  border-radius: 12px;
+  font-weight: 700;
+  gap: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.logout-btn:hover {
+  background: #fee2e2;
+}
+
+.hamburger-menu {
+  display: none;
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  background: white;
+  border: 1px solid #cbd5e1;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  z-index: 1001;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  transition: all 0.2s ease;
+}
+
+.hamburger-menu:hover {
+  transform: translateY(-1px);
+}
+
+.hamburger-menu.active {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hamburger-line {
+  width: 24px;
+  height: 3px;
+  background: #334155;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.35);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.visible {
+  display: block;
+  opacity: 1;
+  pointer-events: all;
+}
+
+@media (max-width: 1024px) {
+  .navbar-sidebar {
+    left: -280px;
+    transition: left 0.3s ease;
+    width: 260px;
+  }
+
+  .navbar-sidebar.active {
+    left: 0;
+  }
+
+  .hamburger-menu {
+    display: flex;
+  }
+
+  .close-btn {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-sidebar {
+    width: 75%;
+    max-width: 260px;
+  }
+
+  .nav-item {
+    padding: 12px 16px;
+    font-size: 0.95rem;
+  }
+
+  .sidebar-title {
+    font-size: 1.1rem;
+  }
+}
+
+.navbar-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.navbar-sidebar::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+.navbar-sidebar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+
+.navbar-sidebar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

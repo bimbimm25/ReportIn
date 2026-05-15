@@ -1,0 +1,124 @@
+/* ========== LANDING FOOTER (REVISED FULL CENTER) ========== */
+.landing-footer {
+  background-color: #fff;
+  padding: 60px 0 40px 0;
+  border-top: 1px solid #f0f0f0;
+  font-family: sans-serif;
+  width: 100%;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  /* Mengatur agar semua elemen (Brand, Links, Contact) sejajar ke samping & di tengah */
+  flex-direction: row; 
+  justify-content: center; 
+  align-items: flex-start; /* Tetap rata atas untuk judulnya */
+  gap: 100px; /* Jarak antar blok (Brand, Links, Contact). Silahkan atur angka ini */
+  padding: 0 20px;
+}
+
+.footer-brand-section {
+  /* Hapus flex: 1 agar tidak memaksa ambil ruang */
+  max-width: 350px;
+  text-align: left; /* Teks di dalam blok brand tetap rata kiri agar rapi */
+}
+
+.footer-brand-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.footer-description {
+  color: #666;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+}
+
+.footer-social-icons {
+  display: flex;
+  gap: 20px;
+}
+
+.social-icon {
+  color: #000000;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+
+/* Links & Contact Section */
+.footer-links-grid {
+  /* Hapus flex: 2 atau grid agar tidak memenuhi lebar */
+  display: flex;
+  flex-direction: row;
+  gap: 80px; /* Jarak antara kolom Links dan Contact Us */
+}
+
+.footer-column {
+  text-align: left; /* Teks Links & Contact tetap rata kiri di dalam kolomnya */
+}
+
+.footer-column h3 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+/* ========== FOOTER BOTTOM (COPYRIGHT) ========== */
+.footer-bottom {
+  margin-top: 60px;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 25px;
+}
+
+.footer-bottom-content {
+  display: flex;
+  justify-content: center; /* Memastikan copyright benar-benar di tengah */
+  color: #999;
+  font-size: 0.85rem;
+}
+
+/* ========== RESPONSIVE (MOBILE) ========== */
+@media (max-width: 992px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+  }
+  
+  .footer-brand-section {
+    text-align: center;
+  }
+
+  .footer-social-icons {
+    justify-content: center;
+  }
+
+  .footer-links-grid {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .footer-column {
+    text-align: center;
+  }
+}
