@@ -215,7 +215,7 @@ function LandingPages() {
                         <Input
                             label="Kategori"
                             type="text"
-                            placeholder="Pilih kategori laporan"
+                            placeholder="Misal: Jalan Rusak, Lampu Mati, Sampah Berserakan"
                             value={form.kategoriLaporan}
                             onChange={(e) => setForm({ ...form, kategoriLaporan: e.target.value })}
                         />
@@ -223,7 +223,7 @@ function LandingPages() {
                         <Input
                             label="Alamat Lengkap Kejadian"
                             type="text"
-                            placeholder="Tulis manual atau pilih dari peta"
+                            placeholder="Masukkan alamat lengkap atau klik di peta untuk otomatis mengisi"
                             value={form.isiAlamat}
                             onChange={(e) => setForm({ ...form, isiAlamat: e.target.value })}
                         />

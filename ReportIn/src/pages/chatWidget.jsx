@@ -9,7 +9,7 @@ const ChatWidget = () => {
     const [messages, setMessages] = useState([
         {
             sender: 'bot',
-            text: 'Halo! Saya **AURA** 👋\n\nAda yang bisa saya bantu terkait pelaporan atau fitur aplikasi?'
+            text: 'Halo! Saya **NOVA** 👋\n\nAda yang bisa saya bantu terkait pelaporan atau fitur aplikasi?'
         }
     ]);
 
@@ -46,56 +46,35 @@ const ChatWidget = () => {
         setInput('');
         setIsLoading(true);
 
+        const token = localStorage.getItem('token');
+
         try {
-
-            const formData = new FormData();
-            formData.append('message', userMsg.text);
-
             const response = await fetch(
                 'http://localhost/apireportin/api/ai/chatbot.php',
                 {
                     method: 'POST',
-                    body: formData,
+                    headers: {
+                        'Content-Type': 'application/json', // Kirim sebagai JSON
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ message: userMsg.text }), // Diubah ke string JSON
                 }
             );
 
-            const data = await response.json();
+            const rawText = await response.text();
+            console.log("Respon Mentah:", rawText);
+
+            const data = JSON.parse(rawText);
 
             if (data.status === 'success') {
-
-                setMessages((prev) => [
-                    ...prev,
-                    {
-                        sender: 'bot',
-                        text: data.reply
-                    }
-                ]);
-
+                setMessages((prev) => [...prev, { sender: 'bot', text: data.reply }]);
             } else {
-
-                setMessages((prev) => [
-                    ...prev,
-                    {
-                        sender: 'bot',
-                        text: '❌ Terjadi kesalahan pada server.'
-                    }
-                ]);
+                setMessages((prev) => [...prev, { sender: 'bot', text: `❌ ${data.reply}` }]);
             }
-
         } catch (error) {
-
             console.error(error);
-
-            setMessages((prev) => [
-                ...prev,
-                {
-                    sender: 'bot',
-                    text: '❌ Gagal terhubung ke server.'
-                }
-            ]);
-
+            setMessages((prev) => [...prev, { sender: 'bot', text: '❌ Gagal terhubung ke server.' }]);
         } finally {
-
             setIsLoading(false);
         }
     };
@@ -117,29 +96,29 @@ const ChatWidget = () => {
                     {/* HEADER */}
                     <div className="chat-header">
 
-    <div className="chat-header-info">
+                        <div className="chat-header-info">
 
-        <div className="bot-avatar">
-            <img
-                src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png"
-                alt="bot"
-            />
-        </div>
+                            <div className="bot-avatar">
+                                <img
+                                    src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png"
+                                    alt="bot"
+                                />
+                            </div>
 
-        <div>
-            <h3>AURA</h3>
-        </div>
+                            <div>
+                                <h3>NOVA</h3>
+                            </div>
 
-    </div>
+                        </div>
 
-    <button
-        className="close-btn"
-        onClick={toggleChat}
-    >
-        ✕
-    </button>
+                        <button
+                            className="close-btn"
+                            onClick={toggleChat}
+                        >
+                            ✕
+                        </button>
 
-</div>
+                    </div>
 
                     {/* BODY */}
                     <div className="chat-body">
@@ -172,12 +151,14 @@ const ChatWidget = () => {
                         ))}
 
                         {isLoading && (
-                            <div className="typing-container">
-
-                                <div className="typing-dot"></div>
-                                <div className="typing-dot"></div>
-                                <div className="typing-dot"></div>
-
+                            <div className="message-wrapper bot">
+                                <div className="message bot" style={{ padding: '10px 14px' }}>
+                                    <div className="typing-container">
+                                        <div className="typing-dot"></div>
+                                        <div className="typing-dot"></div>
+                                        <div className="typing-dot"></div>
+                                    </div>
+                                </div>
                             </div>
                         )}
 

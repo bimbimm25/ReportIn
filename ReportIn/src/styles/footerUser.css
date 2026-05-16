@@ -81,6 +81,11 @@
   margin-bottom: 12px;
 }
 
+.footer-column ul li a {
+  color: #666;
+  text-decoration: none;
+}
+
 /* ========== FOOTER BOTTOM (COPYRIGHT) ========== */
 .footer-bottom {
   margin-top: 60px;

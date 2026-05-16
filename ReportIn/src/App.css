@@ -2454,7 +2454,7 @@ tr:last-child td { border: none; }
 }
 .riwayat-container {
     padding: 40px 20px;
-    max-width: 1400px; /* Diperlebar agar 4 kolom tidak terlalu sempit */
+    max-width: 1400px; 
     margin: 0 auto;
     min-height: 80vh;
 }
@@ -2478,9 +2478,8 @@ tr:last-child td { border: none; }
 /* --- PERBAIKAN GRID SYSTEM --- */
 .card-grid {
     display: grid;
-    /* Memaksa 4 kolom pada layar desktop */
     grid-template-columns: repeat(4, 1fr); 
-    gap: 20px; /* Jarak antar kartu sedikit dirapatkan agar muat 4 */
+    gap: 20px; 
 }
 
 /* --- CARD STYLING --- */
@@ -3086,7 +3085,7 @@ tr:last-child td { border: none; }
 
 .about-services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2.5rem;
   margin-top: 3rem;
 }
@@ -3098,11 +3097,208 @@ tr:last-child td { border: none; }
   text-align: center;
   transition: transform 0.3s ease;
 }
+/* Tambahkan ini agar desain tetap rapi (responsive) saat dibuka di Tablet & HP */
+@media (max-width: 1024px) {
+  .about-services-grid {
+    grid-template-columns: repeat(2, 1fr); /* Menjadi 2 kolom (2 baris) di layar sedang/tablet */
+  }
+}
+
+@media (max-width: 768px) {
+  .about-services-grid {
+    grid-template-columns: 1fr; /* Menjadi 1 baris memanjang ke bawah di layar HP */
+  }
+}
 
 .about-service-card:hover { transform: translateY(-10px); }
 
 .about-icon { font-size: 3rem; display: block; margin-bottom: 1rem; font-weight: bold; }
 
+/* Layout & Container Utama */
+.about-second-section {
+    padding: 5rem 1.5rem;
+    background-color: #f8fafc; /* Warna latar abu-abu kebiruan yang sangat terang */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Wrapper Konten (Model Card) */
+.about-second-header {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 3.5rem 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease;
+}
+
+.about-second-header:hover {
+    transform: translateY(-5px); /* Efek interaktif ringan saat di-hover */
+}
+
+/* Tipografi Judul */
+.about-second-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #1e293b; /* Warna teks gelap yang elegan */
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+/* Garis Dekoratif di bawah Judul */
+.about-second-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #3b82f6; /* Warna biru aksen untuk kesan teknologi/kepercayaan */
+    margin: 1rem auto 0;
+    border-radius: 4px;
+}
+
+/* Tipografi Paragraf */
+.about-second-desc {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #475569; /* Warna teks sekunder agar nyaman dibaca */
+    margin: 0;
+}
+
+/* Responsivitas untuk Layar HP */
+@media (max-width: 768px) {
+    .about-second-section {
+        padding: 3rem 1rem;
+    }
+    
+    .about-second-header {
+        padding: 2rem 1.5rem;
+    }
+
+    .about-second-title {
+        font-size: 1.75rem;
+    }
+
+    .about-second-desc {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+}
+/* Container Utama dengan Background Gradasi */
+.cta-action-section {
+    padding: 6rem 1.5rem;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    color: #ffffff;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Dekorasi Lingkaran Halus di Background */
+.cta-action-section::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 50%;
+}
+
+.cta-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Judul Utama */
+.cta-headline {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.cta-headline .highlight {
+    color: #60a5fa; /* Biru terang agar kata 'Solusi' menonjol */
+}
+
+/* Deskripsi Teks */
+.cta-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #cbd5e1;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+}
+
+.cta-description strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Bagian Slogan/Signature */
+.cta-signature {
+    margin-bottom: 3rem;
+}
+
+.cta-signature .tagline {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #94a3b8;
+}
+
+.cta-signature span {
+    color: #fbbf24; /* Warna kuning emas untuk memberi kesan 'Power/Kendali' */
+    font-weight: 700;
+}
+
+/* Tombol CTA */
+.cta-btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: #3b82f6;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+    transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #2563eb;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(59, 130, 246, 0.4);
+}
+
+/* Responsivitas Layar Kecil */
+@media (max-width: 768px) {
+    .cta-action-section {
+        padding: 4rem 1rem;
+    }
+
+    .cta-headline {
+        font-size: 1.8rem;
+    }
+
+    .cta-description {
+        font-size: 1.1rem;
+    }
+}
 /* FOOTER */
 .about-footer-section {
   background-color: #1f2937; /* Abu-abu Tua */
